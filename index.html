@@ -8,33 +8,43 @@
         body {
             text-align: center;
             font-family: Arial, sans-serif;
-            background-color: #fff;
+            background-color: #ffe6e6;
         }
         #valentine-container {
             margin-top: 50px;
         }
         img {
-            width: 200px;
+            width: 250px;
             transition: 0.3s;
         }
         h1 {
-            font-size: 24px;
+            font-size: 26px;
+            color: #d63384;
         }
         .btn {
             font-size: 18px;
-            padding: 10px 20px;
+            padding: 12px 24px;
             margin: 10px;
             border: none;
+            border-radius: 8px;
             cursor: pointer;
             transition: 0.3s;
         }
         #yes-btn {
             background-color: #4CAF50;
             color: white;
+            font-weight: bold;
         }
         #no-btn {
             background-color: #f44336;
             color: white;
+            font-weight: bold;
+        }
+        #yes-btn:hover {
+            background-color: #45a049;
+        }
+        #no-btn:hover {
+            background-color: #d32f2f;
         }
     </style>
 </head>
@@ -43,19 +53,20 @@
         <img id="bear-image" src="happy-bear.gif" alt="Happy Bear">
         <h1 id="question">Will you be my Valentine?</h1>
         <br>
-        <button id="yes-btn" class="btn" onclick="sayYes()">Yes</button>
-        <button id="no-btn" class="btn" onclick="sayNo()">No</button>
+        <button id="yes-btn" class="btn" onclick="sayYes()">Yes 💖</button>
+        <button id="no-btn" class="btn" onclick="sayNo()">No 💔</button>
     </div>
     
     <script>
         let noClickCount = 0;
-        const noMessages = ["Are you sure? 🥺", "Please say yes 🥰", "Last chance 💕"];
+        const noMessages = ["Are you sure? 🥺", "Please say yes 🥰", "Don't break my heart 💞", "Last chance 💕"];
 
         function sayYes() {
             document.getElementById("bear-image").src = "happy-ending.gif"; // Replace with the final GIF image
             document.getElementById("question").innerText = "WOOOOO!!! I love you Emiñi!! ;)";
             document.getElementById("yes-btn").style.display = "none";
             document.getElementById("no-btn").style.display = "none";
+            document.body.style.backgroundColor = "#ffccf9";
         }
 
         function sayNo() {
