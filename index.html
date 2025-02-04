@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+        }
+        #valentine-container {
+            margin-top: 50px;
+        }
+        img {
+            width: 200px;
+            transition: 0.3s;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        .btn {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yes-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #no-btn {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="valentine-container">
+        <img id="bear-image" src="happy-bear.gif" alt="Happy Bear">
+        <h1 id="question">Will you be my Valentine?</h1>
+        <br>
+        <button id="yes-btn" class="btn" onclick="sayYes()">Yes</button>
+        <button id="no-btn" class="btn" onclick="sayNo()">No</button>
+    </div>
+    
+    <script>
+        let noClickCount = 0;
+        const noMessages = ["Are you sure? 🥺", "Please say yes 🥰", "Last chance 💕"];
+
+        function sayYes() {
+            document.getElementById("bear-image").src = "happy-ending.gif"; // Replace with the final GIF image
+            document.getElementById("question").innerText = "WOOOOO!!! I love you Emiñi!! ;)";
+            document.getElementById("yes-btn").style.display = "none";
+            document.getElementById("no-btn").style.display = "none";
+        }
+
+        function sayNo() {
+            noClickCount++;
+            document.getElementById("bear-image").src = "sad-bear.gif"; // Replace with the sad bear GIF
+            document.getElementById("no-btn").style.fontSize = (18 - noClickCount * 2) + "px";
+            document.getElementById("yes-btn").style.fontSize = (18 + noClickCount * 2) + "px";
+
+            if (noClickCount <= noMessages.length) {
+                document.getElementById("no-btn").innerText = noMessages[noClickCount - 1];
+            } else {
+                document.getElementById("no-btn").style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
